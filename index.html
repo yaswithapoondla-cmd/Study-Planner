@@ -15,280 +15,44 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app-layout">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-brand">
-                <div class="brand-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-                        <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-                    </svg>
-                </div>
-                <div class="brand-text">
-                    <span class="brand-title">StudyPlanner</span>
-                    <span class="brand-badge">Student Pro</span>
-                </div>
+    <!-- React Root Mount Container -->
+    <div id="root">
+        <noscript>
+            <div style="padding: 2rem; text-align: center; font-family: sans-serif;">
+                <h2>JavaScript Required</h2>
+                <p>Please enable JavaScript to run Smart Study Planner.</p>
             </div>
-
-            <nav class="sidebar-nav" aria-label="Main Navigation">
-                <a href="#dashboard" class="nav-item active" id="nav-dashboard">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="3" width="7" height="9"/>
-                        <rect x="14" y="3" width="7" height="5"/>
-                        <rect x="14" y="12" width="7" height="9"/>
-                        <rect x="3" y="16" width="7" height="5"/>
-                    </svg>
-                    <span>Dashboard</span>
-                </a>
-                <a href="#create-goal-section" class="nav-item" id="nav-new-goal">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"/>
-                        <line x1="12" y1="8" x2="12" y2="16"/>
-                        <line x1="8" y1="12" x2="16" y2="12"/>
-                    </svg>
-                    <span>Create Goal</span>
-                </a>
-                <a href="#goals-section" class="nav-item" id="nav-goals">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
-                    <span>Study Goals</span>
-                </a>
-                <a href="#subjects-section" class="nav-item" id="nav-subjects">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                    </svg>
-                    <span>Subjects</span>
-                </a>
-            </nav>
-
-            <div class="sidebar-tip">
-                <div class="tip-header">
-                    <span class="tip-icon">💡</span>
-                    <span class="tip-label">Study Tip</span>
-                </div>
-                <p class="tip-text">Break big topics into bite-sized tasks. Track each as a separate goal for steady momentum!</p>
-            </div>
-
-            <div class="sidebar-user">
-                <div class="user-avatar">SG</div>
-                <div class="user-info">
-                    <div class="user-name">Study Scholar</div>
-                    <div class="user-role">Academic Dashboard</div>
-                </div>
-            </div>
-        </aside>
-
-        <!-- Main Content Area -->
-        <main class="main-wrapper" id="dashboard">
-            <!-- Header Section -->
-            <header class="app-header">
-                <div class="header-content">
-                    <div class="header-titles">
-                        <div class="greeting-tag">Student Dashboard</div>
-                        <h1 class="main-title">Smart Study Planner</h1>
-                        <p class="subtitle">Plan your studies. Track your progress.</p>
-                    </div>
-                    <div class="header-actions">
-                        <div class="date-badge" id="current-date-badge">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                                <line x1="16" y1="2" x2="16" y2="6"/>
-                                <line x1="8" y1="2" x2="8" y2="6"/>
-                                <line x1="3" y1="10" x2="21" y2="10"/>
-                            </svg>
-                            <span id="header-date">Today</span>
-                        </div>
-                        <button class="btn-demo" id="btn-load-demo" title="Add sample study goals to explore the dashboard">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon points="5 3 19 12 5 21 5 3"/>
-                            </svg>
-                            <span>Load Demo Goals</span>
-                        </button>
-                    </div>
-                </div>
-            </header>
-
-            <!-- Dashboard Content Container -->
-            <div class="dashboard-container">
-                <!-- Statistics Section -->
-                <section class="stats-section" aria-label="Study Statistics">
-                    <div class="section-header">
-                        <div>
-                            <h2 class="section-title">Overview Statistics</h2>
-                            <p class="section-subtitle">Real-time breakdown of your learning milestones</p>
-                        </div>
-                    </div>
-                    <!-- 4 Reusable Stat Cards Rendered Here -->
-                    <div class="stats-grid" id="stats-container">
-                        <!-- Populated dynamically by script.js (renderStats) -->
-                    </div>
-                </section>
-
-                <!-- Two-Column Workspace Layout -->
-                <div class="workspace-grid">
-                    <!-- Left Column: Study Goals -->
-                    <section class="goals-section" id="goals-section" aria-label="Study Goals List">
-                        <div class="goals-header-bar">
-                            <div>
-                                <h2 class="section-title">Study Goals</h2>
-                                <p class="section-subtitle">Your active academic milestones and deadlines</p>
-                            </div>
-                            <div class="filter-controls">
-                                <button class="filter-pill active" data-filter="all" id="filter-all">All Goals</button>
-                                <button class="filter-pill" data-filter="pending" id="filter-pending">Pending</button>
-                                <button class="filter-pill" data-filter="completed" id="filter-completed">Completed</button>
-                            </div>
-                        </div>
-
-                        <!-- Goals List Container with Conditional Rendering -->
-                        <div class="goals-list" id="goals-list">
-                            <!-- Populated dynamically by script.js (renderGoals) -->
-                        </div>
-                    </section>
-
-                    <!-- Right Column: Create Goal Form & Subjects Breakdown -->
-                    <div class="side-column">
-                        <!-- Create Goal Section -->
-                        <section class="create-goal-section" id="create-goal-section" aria-label="Create New Study Goal">
-                            <div class="card-box create-goal-card">
-                                <div class="card-box-header">
-                                    <div class="header-icon-box">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <circle cx="12" cy="12" r="10"/>
-                                            <line x1="12" y1="8" x2="12" y2="16"/>
-                                            <line x1="8" y1="12" x2="16" y2="12"/>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h2 class="card-title">Create Study Goal</h2>
-                                        <p class="card-subtitle">Define a new target with subject & priority</p>
-                                    </div>
-                                </div>
-
-                                <!-- Form Alert Banner for Validation -->
-                                <div class="form-alert" id="form-alert" role="alert" style="display: none;"></div>
-
-                                <!-- Create Goal Form -->
-                                <form id="goal-form" class="goal-form" novalidate>
-                                    <!-- Goal Title -->
-                                    <div class="form-group">
-                                        <label for="goal-title" class="form-label">
-                                            Goal Title <span class="required-star">*</span>
-                                        </label>
-                                        <input 
-                                            type="text" 
-                                            id="goal-title" 
-                                            name="goalTitle" 
-                                            class="form-control" 
-                                            placeholder="e.g., Revise Calculus Chapter 4"
-                                            required
-                                        >
-                                    </div>
-
-                                    <!-- Subject Input with Datalist Suggestions -->
-                                    <div class="form-group">
-                                        <label for="goal-subject" class="form-label">
-                                            Subject <span class="required-star">*</span>
-                                        </label>
-                                        <input 
-                                            type="text" 
-                                            id="goal-subject" 
-                                            name="goalSubject" 
-                                            class="form-control" 
-                                            placeholder="e.g., Mathematics, Physics..."
-                                            list="subject-suggestions"
-                                            required
-                                        >
-                                        <datalist id="subject-suggestions">
-                                            <option value="Mathematics">
-                                            <option value="Physics">
-                                            <option value="Chemistry">
-                                            <option value="Computer Science">
-                                            <option value="Biology">
-                                            <option value="History">
-                                            <option value="Literature">
-                                        </datalist>
-                                    </div>
-
-                                    <!-- Two-column row for Priority & Target Date -->
-                                    <div class="form-row">
-                                        <!-- Priority -->
-                                        <div class="form-group">
-                                            <label for="goal-priority" class="form-label">
-                                                Priority <span class="required-star">*</span>
-                                            </label>
-                                            <select id="goal-priority" name="goalPriority" class="form-control" required>
-                                                <option value="" disabled selected>Select priority</option>
-                                                <option value="High">High</option>
-                                                <option value="Medium">Medium</option>
-                                                <option value="Low">Low</option>
-                                            </select>
-                                        </div>
-
-                                        <!-- Target Date -->
-                                        <div class="form-group">
-                                            <label for="goal-date" class="form-label">
-                                                Target Date <span class="required-star">*</span>
-                                            </label>
-                                            <input 
-                                                type="date" 
-                                                id="goal-date" 
-                                                name="goalDate" 
-                                                class="form-control" 
-                                                required
-                                            >
-                                        </div>
-                                    </div>
-
-                                    <!-- Submit Button -->
-                                    <button type="submit" class="btn-primary" id="btn-submit-goal">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <line x1="12" y1="5" x2="12" y2="19"/>
-                                            <line x1="5" y1="12" x2="19" y2="12"/>
-                                        </svg>
-                                        <span>Add Goal</span>
-                                    </button>
-                                </form>
-                            </div>
-                        </section>
-
-                        <!-- Subject Section -->
-                        <section class="subjects-section" id="subjects-section" aria-label="Subject Breakdown">
-                            <div class="card-box subjects-card">
-                                <div class="card-box-header">
-                                    <div class="header-icon-box subjects-icon-box">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h2 class="card-title">Subject Breakdown</h2>
-                                        <p class="card-subtitle">Goals grouped by subject area</p>
-                                    </div>
-                                </div>
-
-                                <!-- Subjects List with Automatic Calculation -->
-                                <div class="subjects-list" id="subjects-list">
-                                    <!-- Populated dynamically by script.js (renderSubjects) -->
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Footer -->
-            <footer class="app-footer">
-                <p>Smart Study Planner &bull; Built with pure HTML, CSS, and Vanilla JavaScript</p>
-            </footer>
-        </main>
+        </noscript>
     </div>
 
-    <!-- Application Script -->
-    <script src="script.js"></script>
+    <!-- React 18, ReactDOM, and Babel Standalone CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- React Application Script (Babel compiled) -->
+    <script type="text/babel" src="script.js"></script>
+
+    <!-- Graceful file:// protocol handler for Chromium browsers -->
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                var root = document.getElementById('root');
+                if (root && root.children.length === 0 && window.location.protocol === 'file:') {
+                    root.innerHTML = '<div style="max-width: 600px; margin: 4rem auto; padding: 2rem; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif; text-align: center; color: #1e293b;">' +
+                        '<div style="width: 48px; height: 48px; border-radius: 10px; background: #eef2ff; color: #4f46e5; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.5rem;">⚛️</div>' +
+                        '<h2 style="color: #1e293b; margin-bottom: 0.5rem; font-size: 1.25rem;">Smart Study Planner (React 18)</h2>' +
+                        '<p style="color: #64748b; line-height: 1.5; font-size: 0.9rem; margin-bottom: 1.25rem;">Chromium blocks external Babel JSX compilation when opened directly via <code>file://</code> protocol.</p>' +
+                        '<div style="background: #f8fafc; padding: 1rem 1.25rem; border-radius: 8px; border: 1px solid #e2e8f0; font-size: 0.85rem; text-align: left; line-height: 1.6; color: #334155;">' +
+                        '<strong>How to run locally:</strong><br>' +
+                        '&bull; <strong>VS Code:</strong> Right-click <code>index.html</code> &rarr; <em>Open with Live Server</em><br>' +
+                        '&bull; <strong>Terminal:</strong> Run <code>npx serve</code> or <code>python -m http.server</code><br>' +
+                        '&bull; <strong>Firefox:</strong> Double-click <code>index.html</code> to open directly.' +
+                        '</div>' +
+                        '</div>';
+                }
+            }, 1200);
+        });
+    </script>
 </body>
 </html>
